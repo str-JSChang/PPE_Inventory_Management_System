@@ -143,3 +143,73 @@ Keep the UI responsive and intuitive by separating concerns (login, dashboard, i
 Time Management:
 
 Use Java 8’s Date/Time API (e.g., LocalDateTime) for tracking inventory update times.
+
+---------------------------------------------------------------------------------------------------
+Simplified Summary & Checklist
+Inventory Initialization:
+
+Task: Create the initial PPE inventory file (ppe.txt) with 100 boxes per PPE item.
+Implementation Tips:
+Use Java I/O (e.g., File, FileWriter, BufferedWriter) to check if the file exists.
+If not, create it and write the dummy values.
+Loops: You might use a simple for loop to iterate over the list of PPE items to write their details into the file.
+File Handling:
+
+Task: Manage multiple files:
+ppe.txt: Stores PPE item codes, supplier codes, and quantities.
+suppliers.txt: Contains detailed supplier information.
+hospitals.txt: Contains hospital details (codes, etc.).
+transactions.txt: Logs every transaction with item code, supplier/hospital code, original quantity, modified quantity, and timestamp.
+Implementation Tips:
+Use classes from java.io (or java.nio.file) for reading/writing.
+Loops: Use a while loop or for-each loop to read through files line by line.
+Search Feature:
+
+Task: Allow searching based on:
+Item Code
+Supplier Code
+Hospital Code
+Time duration (start date – end date)
+Implementation Tips:
+For small datasets, a linear search is sufficient.
+Loops: Use a for loop (or enhanced for-each loop) to iterate through the collection of records and check each record against the search criteria.
+Consider using filtering with Java Streams if you prefer a more functional style.
+User Management:
+
+Task: Enable admins to add, modify, search, and delete users.
+Implementation Tips:
+Create a User class and store user details in a file (e.g., users.txt).
+Use a GUI form for CRUD operations.
+Loops: Use loops (like for or while) to iterate over user records when performing searches or updates.
+Inventory Updates (Receiving/Distribution):
+
+Task: Update inventory when:
+Receiving PPE items from suppliers (record as "++")
+Distributing PPE items to hospitals (record as "--")
+Implementation Tips:
+Before updating, check that the stock is sufficient.
+Record every update in transactions.txt including original and new quantities and the timestamp.
+Loops: Use a while loop to validate input (e.g., if entered quantity exceeds available stock, keep prompting).
+Alerts and Stock Monitoring:
+
+Task: Generate an alert (or log a message) when available stock for any item drops below a threshold (e.g., 25 boxes).
+Implementation Tips:
+After every update, check the quantity.
+Loops: A simple if condition inside a loop processing inventory items can check each item's stock level.
+GUI Design:
+
+Task: Build a user interface using:
+JFrame: For the main application window (Login Page, Dashboard, Inventory Page).
+JPanel: To organize and group UI components within the JFrame.
+Implementation Tips:
+Use ActionListeners to trigger inventory updates and file writes.
+Loops: You might use loops to dynamically add components if the number of items or options is variable.
+Reporting:
+
+Task: Generate reports that include:
+All inventory received/distributed within a specified time frame.
+Current inventory levels sorted by item code.
+Implementation Tips:
+Read data into collections and sort them using Collections.sort() or Java Streams.
+Loops: Use for loops to iterate over sorted collections and print or display each record.
+
