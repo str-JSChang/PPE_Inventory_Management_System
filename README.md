@@ -89,3 +89,57 @@ We should able to indicate the current quantity in stock properly, if quantity i
 Hot TIP:
 The SEARCH is using ITEM CODE
 The list are NECESSARY going to PRINT SUPPLIERS/HOSPITAL CODES and QUANTITY DISTRIBUTED(--) or RECEIVED (++) ;WITH DATE doing -- and ++ (receive and distributed)
+The unit of measure for inventory is the box. All receiving, recording, and distribution operations are done in boxes.
+for example,the initial quantity is 100 boxes. This means:
+
+Your system starts with 100 boxes of masks.
+if a hospital orders 10 boxes of masks, you reduce your inventory from 100 boxes to 90 boxes. The focus is on tracking boxes
+
+
+
+BELOW WILL BE THE
+CHATGPT SIMPLIFIED VERSION - DO NOT JUST ONLY READ THIS AND RELY ON CHATGPT, YOU HAVE BRAIN, AND YOU'RE HUMAN, READ THE MESSSAGES ABOVE FIRST (I USE THE MESSAGES ABOVE AND ASK CHATGPT TO SUM, IF CHATGPT WRONG, MEANS I'M WRONG TOO, YOU NEED TO NOTICE THE ERROR AND COMPARING TO THE ACTUAL ASSIGNMENT QUESTION)
+-----------------------------------------------------------------------------------------
+Simplified Summary
+Inventory Management:
+
+Items: PPE items like Head Cover, Face Shield, Mask, Gloves, Gown, Shoe Covers.
+Measurement: All quantities are measured in boxes.
+Initial Inventory: Each item starts with 100 boxes recorded in a file (ppe.txt).
+Entities & Relationships:
+
+Suppliers: Each PPE item comes from exactly one supplier (only store supplier codes in ppe.txt). A supplier can supply multiple item types.
+Hospitals: There are 3–4 hospitals; hospital details (hospital codes) are stored in hospitals.txt.
+Users: Admins can create, modify, search, and delete users.
+Transactions:
+
+Record every inventory update (receiving from suppliers "++" or distributing to hospitals "--") in transactions.txt, including item code, supplier/hospital code, previous quantity, new quantity, and timestamp.
+Include alerts or messages when stock falls below a threshold (e.g., less than 25 boxes).
+GUI:
+
+Use a JFrame for the main application window.
+Organize components with JPanels (e.g., Login Page, Dashboard, Inventory Page).
+Reporting & Searching:
+
+Ability to search items by item code, supplier code, or hospital code.
+Filter reports by time duration.
+Implementation Tips
+File Handling:
+
+On the first run, check for and create the initial inventory file (ppe.txt) with default quantities.
+Use separate text files for suppliers, hospitals, and transactions.
+Data Validation:
+
+Validate user input (e.g., check that stock is sufficient before distributing items).
+Implement error handling to prompt for valid input if necessary.
+Modularity:
+
+Create separate classes for Users, PPE_Item, Supplier, Hospital, and Transaction.
+Use enums (e.g., for user roles) and proper access modifiers for better encapsulation.
+GUI Design:
+
+Use JFrame for a top-level window and add JPanels to organize the UI.
+Keep the UI responsive and intuitive by separating concerns (login, dashboard, inventory updates).
+Time Management:
+
+Use Java 8’s Date/Time API (e.g., LocalDateTime) for tracking inventory update times.
