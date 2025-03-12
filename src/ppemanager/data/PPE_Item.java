@@ -11,7 +11,7 @@ package ppemanager.data;
 public class PPE_Item {
     private final String itemCode;
     private String supplierCode;
-    private int Quantity;
+    private int quantity;
     private String itemName;
     
         public PPE_Item(String itemCode, String supplierCode, int quantity, String itemName) {
@@ -20,7 +20,7 @@ public class PPE_Item {
         }
         this.itemCode = itemCode;
         this.supplierCode = supplierCode;
-        this.Quantity = Quantity;
+        this.quantity = quantity;
         this.itemName = itemName;
     }
 
@@ -37,14 +37,14 @@ public class PPE_Item {
     }
 
     public int getQuantity() {
-        return Quantity;
+        return quantity;
     }
 
-    public void setQuantity(int Quantity) {
-        if (Quantity < 0) {
+    public void setQuantity(int quantity) {
+        if (quantity < 0) {
             throw new IllegalArgumentException("Invalid Quantities.");
         }
-        this.Quantity = Quantity;
+        this.quantity = quantity;
     }
 
     public String getItemName() {
